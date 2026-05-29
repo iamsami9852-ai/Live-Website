@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Booking — Solstice Travel</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .success-msg {
+      display: none;
+      background: var(--sand); border: 1px solid var(--gold);
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem 2rem; margin-top: 2rem;
+    }
+    .success-msg h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; color: var(--gold); margin-bottom: 0.4rem;
+    }
+    .success-msg p { font-size: 0.9rem; color: var(--text-light); }
+    .map-placeholder {
+      width: 100%; height: 300px;
+      background: linear-gradient(135deg, #1a3a4a, #2b5f75);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .map-placeholder::after {
+      content: ' Find us in London, Dubai & Singapore';
+      color: rgba(250,248,244,0.6); font-size: 0.9rem;
+      letter-spacing: 0.1em;
+    }
+    .faq-list { margin-top: 2rem; }
+    .faq-item {
+      border-bottom: 1px solid var(--mist); overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 1.5rem 0; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; color: var(--deep); font-weight: 500;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-icon { font-size: 1.2rem; color: var(--gold); transition: transform 0.3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 0.9rem; color: var(--text-light); line-height: 1.8;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.2rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Solstice<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<div class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-overlay"></div>
+  <div class="page-banner-content">
+    <p class="section-label" style="margin-bottom:0.6rem">Get in Touch</p>
+    <h1>Book Your Journey</h1>
+    <p>Our travel experts are ready to craft your perfect holiday</p>
+  </div>
+</div>
+
+<section>
+  <div class="contact-wrapper">
+    <!-- INFO -->
+    <div class="fade-in">
+      <div class="section-label">Contact Details</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; margin-bottom:2rem; color:var(--deep);">Let's Plan Something<br>Extraordinary</h2>
+
+      <div class="contact-item">
+        <div class="contact-item-icon"></div>
+        <div class="contact-item-text">
+          <h4>London HQ</h4>
+          <p>14 Mayfair Lane, London W1K 5AL<br>United Kingdom</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"></div>
+        <div class="contact-item-text">
+          <h4>Dubai Office</h4>
+          <p>The Dubai Mall, Financial Centre Road<br>Dubai, UAE</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon"></div>
+        <div class="contact-item-text">
+          <h4>Phone</h4>
+          <p>+44 20 7946 0958<br>+971 4 888 0123</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div class="contact-item-text">
+          <h4>Email</h4>
+          <p>hello@solsticetravel.com<br>bookings@solsticetravel.com</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div class="contact-item-text">
+          <h4>Office Hours</h4>
+          <p>Mon–Fri: 9:00 AM – 7:00 PM<br>Sat: 10:00 AM – 4:00 PM</p>
+        </div>
+      </div>
+
+      <div class="map-placeholder" style="margin-top:2rem;"></div>
+    </div>
+
+    <!-- FORM -->
+    <div class="fade-in" style="transition-delay:0.2s">
+      <div class="section-label">Booking Enquiry</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; margin-bottom:0.5rem; color:var(--deep);">Start Your Adventure</h2>
+      <p style="color:var(--text-light); margin-bottom:2rem; font-size:0.9rem;">Fill in the form and one of our expert curators will be in touch within 24 hours.</p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" id="fname" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" id="lname" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@example.com" id="email" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+1 234 567 890" />
+        </div>
+        <div class="form-group">
+          <label>Dream Destination</label>
+          <select id="destination">
+            <option value="">Select a destination…</option>
+            <option>Bali, Indonesia</option>
+            <option>Santorini, Greece</option>
+            <option>Maldives</option>
+            <option>Kyoto, Japan</option>
+            <option>Amalfi Coast, Italy</option>
+            <option>Machu Picchu, Peru</option>
+            <option>Zanzibar, Tanzania</option>
+            <option>New Zealand</option>
+            <option>Other (specify below)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Travel Type</label>
+          <select>
+            <option>Honeymoon / Romance</option>
+            <option>Family Holiday</option>
+            <option>Adventure Trip</option>
+            <option>Luxury Retreat</option>
+            <option>Solo Travel</option>
+            <option>Group Travel</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Departure Date</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Number of Travelers</label>
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Approximate Budget (per person)</label>
+          <select>
+            <option>$500 – $1,000</option>
+            <option>$1,000 – $2,000</option>
+            <option>$2,000 – $3,500</option>
+            <option>$3,500 – $5,000</option>
+            <option>$5,000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Duration (nights)</label>
+          <select>
+            <option>3–5 nights</option>
+            <option>6–8 nights</option>
+            <option>9–12 nights</option>
+            <option>13–20 nights</option>
+            <option>21+ nights</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Tell Us About Your Dream Trip</label>
+          <textarea placeholder="Share any special requests, interests, or details about what you're looking for — the more we know, the better we can tailor your experience…"></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem; display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+        <input type="checkbox" id="consent" style="width:16px;height:16px;accent-color:var(--gold);" />
+        <label for="consent" style="font-size:0.82rem; color:var(--text-light);">I agree to be contacted by Solstice Travel about my enquiry and accept the <a href="#" style="color:var(--gold);">Privacy Policy</a>.</label>
+      </div>
+
+      <button class="btn-submit" onclick="submitForm()">Send Enquiry →</button>
+
+      <div class="success-msg" id="successMsg">
+        <h3>Enquiry Received! ✦</h3>
+        <p>Thank you for reaching out. One of our travel curators will contact you within 24 hours to begin crafting your perfect journey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--sand);">
+  <div class="text-center">
+    <div class="section-label fade-in">Questions</div>
+    <h2 class="section-title fade-in">Frequently Asked</h2>
+  </div>
+
+  <div class="faq-list fade-in" style="max-width:750px; margin:0 auto;">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How far in advance should I book? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We recommend booking at least 3–6 months in advance for peak season destinations. However, we can often accommodate last-minute requests — just reach out and we'll do our best.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Are flights included in your packages? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Most of our packages include return flights from major hub cities. If your departure city isn't covered, we'll quote flights separately at competitive rates through our airline partners.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is your cancellation policy? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Cancellations made more than 60 days before departure receive a full refund. Between 30–60 days, a 50% refund applies. Within 30 days, packages are non-refundable but may be rescheduled subject to availability.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you offer travel insurance? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes. We partner with top-rated insurers to offer comprehensive travel insurance covering medical emergencies, cancellations, lost luggage, and more. We strongly recommend all travelers take out cover.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I customise a package? <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Absolutely — in fact, most of our clients prefer bespoke itineraries. Tell us your budget, interests, and travel style, and we'll design something completely unique for you.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Solstice<span>.</span></div>
+      <p class="footer-desc">Crafting extraordinary travel experiences since 2012.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">✦</a>
+        <a class="social-btn" href="#">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Popular</h4>
+      <ul>
+        <li><a href="#">Bali, Indonesia</a></li>
+        <li><a href="#">Santorini, Greece</a></li>
+        <li><a href="#">Maldives</a></li>
+        <li><a href="#">Kyoto, Japan</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Booking Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Solstice Travel. All rights reserved.</p>
+    <p>Designed with  for explorers</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function submitForm() {
+  const fname = document.getElementById('fname').value;
+  const email = document.getElementById('email').value;
+  if (!fname || !email) {
+    alert('Please fill in your name and email address.');
+    return;
+  }
+  document.getElementById('successMsg').style.display = 'block';
+  document.querySelector('.btn-submit').disabled = true;
+  document.querySelector('.btn-submit').textContent = 'Enquiry Sent ✓';
+  document.querySelector('.btn-submit').style.background = 'var(--ocean)';
+  document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

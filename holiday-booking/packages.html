@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages — Solstice Travel</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .pkg-tabs {
+      display: flex; gap: 0; border-bottom: 1px solid var(--mist);
+      margin-bottom: 3rem;
+    }
+    .pkg-tab {
+      padding: 1rem 2rem; border: none; background: transparent;
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-light); cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px; transition: all 0.3s;
+    }
+    .pkg-tab.active, .pkg-tab:hover {
+      color: var(--gold); border-bottom-color: var(--gold);
+    }
+    .pkg-full-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .pkg-includes {
+      list-style: none; margin-bottom: 1.2rem;
+    }
+    .pkg-includes li {
+      font-size: 0.82rem; color: var(--text-light);
+      padding: 0.3rem 0; display: flex;
+      align-items: center; gap: 0.5rem;
+      border-bottom: 1px solid var(--mist);
+    }
+    .pkg-includes li::before {
+      content: '✓'; color: var(--gold); font-size: 0.75rem;
+    }
+    .featured-pkg {
+      background: var(--sand); padding: 4rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      margin: 4rem 0;
+    }
+    .featured-pkg-img {
+      height: 450px; overflow: hidden; position: relative;
+    }
+    .featured-pkg-img img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .featured-pkg-badge {
+      position: absolute; top: 1.5rem; left: 1.5rem;
+      background: var(--gold); color: var(--white);
+      padding: 0.4rem 1rem; font-size: 0.7rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .price-box {
+      background: var(--deep); padding: 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 2rem;
+    }
+    .price-box .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; color: var(--gold-light);
+    }
+    .price-box .price small {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; color: rgba(250,248,244,0.5);
+    }
+    @media(max-width:900px) {
+      .pkg-full-grid { grid-template-columns: 1fr; }
+      .featured-pkg { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Solstice<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- BANNER -->
+<div class="page-banner">
+  <div class="page-banner-bg"></div>
+  <div class="page-banner-overlay"></div>
+  <div class="page-banner-content">
+    <p class="section-label" style="margin-bottom:0.6rem">All-Inclusive</p>
+    <h1>Holiday Packages</h1>
+    <p>Curated experiences for every type of traveler</p>
+  </div>
+</div>
+
+<section>
+  <div class="pkg-tabs fade-in">
+    <button class="pkg-tab active" onclick="filterPkg('all', this)">All Packages</button>
+    <button class="pkg-tab" onclick="filterPkg('luxury', this)">Luxury</button>
+    <button class="pkg-tab" onclick="filterPkg('adventure', this)">Adventure</button>
+    <button class="pkg-tab" onclick="filterPkg('family', this)">Family</button>
+    <button class="pkg-tab" onclick="filterPkg('honeymoon', this)">Honeymoon</button>
+  </div>
+
+  <div class="pkg-full-grid" id="pkgGrid">
+
+    <div class="pkg-card fade-in" data-type="luxury">
+      <div class="pkg-img-wrap">
+        <img class="pkg-img" src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80" alt="Maldives Luxury" />
+        <span class="pkg-badge">Luxury</span>
+      </div>
+      <div class="pkg-body">
+        <h3>Maldives Overwater Escape</h3>
+        <div class="pkg-meta">
+          <span> 6 nights</span>
+          <span> 2 guests</span>
+          <span> 5-star</span>
+        </div>
+        <p class="pkg-desc">Stay in a private overwater villa surrounded by the turquoise Indian Ocean. Includes sunrise snorkeling, gourmet dining, and couple spa treatments.</p>
+        <ul class="pkg-includes">
+          <li>Return flights included</li>
+          <li>Private speedboat transfer</li>
+          <li>All-inclusive meals & beverages</li>
+          <li>Snorkeling & water sports</li>
+          <li>Daily spa treatment</li>
+        </ul>
+        <div class="pkg-footer">
+          <div class="pkg-price">$2,499<small>/person</small></div>
+          <a href="contact.html" class="btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card fade-in" data-type="honeymoon" style="transition-delay:0.1s">
+      <div class="pkg-img-wrap">
+        <img class="pkg-img" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="Santorini" />
+        <span class="pkg-badge">Honeymoon</span>
+      </div>
+      <div class="pkg-body">
+        <h3>Santorini Sunset Romance</h3>
+        <div class="pkg-meta">
+          <span> 5 nights</span>
+          <span> 2 guests</span>
+          <span> 4-star</span>
+        </div>
+        <p class="pkg-desc">Cliffside suites with caldera views, private plunge pools, candlelit dinners, and iconic sunset sailing cruises around Oia.</p>
+        <ul class="pkg-includes">
+          <li>Return flights included</li>
+          <li>Cliffside boutique hotel</li>
+          <li>Daily breakfast & dinner</li>
+          <li>Sunset sailing cruise</li>
+          <li>Private wine tasting</li>
+        </ul>
+        <div class="pkg-footer">
+          <div class="pkg-price">$1,899<small>/person</small></div>
+          <a href="contact.html" class="btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card fade-in" data-type="adventure" style="transition-delay:0.2s">
+      <div class="pkg-img-wrap">
+        <img class="pkg-img" src="https://images.unsplash.com/photo-1543158181-e6f9f6712055?w=600&q=80" alt="Machu Picchu" />
+        <span class="pkg-badge" style="background:var(--terra)">Adventure</span>
+      </div>
+      <div class="pkg-body">
+        <h3>Machu Picchu Expedition</h3>
+        <div class="pkg-meta">
+          <span> 8 nights</span>
+          <span> 4 guests</span>
+          <span> 4-star</span>
+        </div>
+        <p class="pkg-desc">Trek the legendary Inca Trail, explore Cusco's cobbled streets, and stand in awe at Machu Picchu at sunrise with expert local guides.</p>
+        <ul class="pkg-includes">
+          <li>Return flights included</li>
+          <li>4-night Inca Trail trek</li>
+          <li>Expert local guide</li>
+          <li>All meals on trail</li>
+          <li>Lima city tour</li>
+        </ul>
+        <div class="pkg-footer">
+          <div class="pkg-price">$1,999<small>/person</small></div>
+          <a href="contact.html" class="btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card fade-in" data-type="family">
+      <div class="pkg-img-wrap">
+        <img class="pkg-img" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Bali" />
+        <span class="pkg-badge" style="background:var(--ocean)">Family</span>
+      </div>
+      <div class="pkg-body">
+        <h3>Bali Family Adventure</h3>
+        <div class="pkg-meta">
+          <span> 7 nights</span>
+          <span> 4 guests</span>
+          <span> 4-star</span>
+        </div>
+        <p class="pkg-desc">A perfect family getaway with white-water rafting, rice terrace walks, cooking classes, and luxurious villa stays with private pool access.</p>
+        <ul class="pkg-includes">
+          <li>Return flights included</li>
+          <li>Private villa with pool</li>
+          <li>Breakfast daily</li>
+          <li>White-water rafting</li>
+          <li>Temple & cultural tours</li>
+        </ul>
+        <div class="pkg-footer">
+          <div class="pkg-price">$1,299<small>/person</small></div>
+          <a href="contact.html" class="btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card fade-in" data-type="luxury" style="transition-delay:0.1s">
+      <div class="pkg-img-wrap">
+        <img class="pkg-img" src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=600&q=80" alt="Amalfi" />
+        <span class="pkg-badge">Luxury</span>
+      </div>
+      <div class="pkg-body">
+        <h3>Amalfi Coast Splendour</h3>
+        <div class="pkg-meta">
+          <span> 7 nights</span>
+          <span> 2 guests</span>
+          <span> 5-star</span>
+        </div>
+        <p class="pkg-desc">Cruise the dramatic coastline by private yacht, dine on cliff-edge terraces, and explore Positano's pastel-colored lanes at your leisure.</p>
+        <ul class="pkg-includes">
+          <li>Return flights included</li>
+          <li>5-star clifftop hotel</li>
+          <li>Private yacht day trip</li>
+          <li>Breakfast & dinner daily</li>
+          <li>Limoncello tasting tour</li>
+        </ul>
+        <div class="pkg-footer">
+          <div class="pkg-price">$2,199<small>/person</small></div>
+          <a href="contact.html" class="btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-card fade-in" data-type="adventure" style="transition-delay:0.2s">
+      <div class="pkg-img-wrap">
+        <img class="pkg-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="New Zealand" />
+        <span class="pkg-badge" style="background:var(--terra)">Adventure</span>
+      </div>
+      <div class="pkg-body">
+        <h3>New Zealand Wild Discovery</h3>
+        <div class="pkg-meta">
+          <span> 10 nights</span>
+          <span> 2 guests</span>
+          <span> 4-star</span>
+        </div>
+        <p class="pkg-desc">From Milford Sound fjords to volcanic plateaus and hobbit-hole villages, New Zealand's raw beauty is yours to explore on this epic journey.</p>
+        <ul class="pkg-includes">
+          <li>Return flights included</li>
+          <li>Campervan hire (5 days)</li>
+          <li>Milford Sound cruise</li>
+          <li>Skydiving experience</li>
+          <li>Maori cultural evening</li>
+        </ul>
+        <div class="pkg-footer">
+          <div class="pkg-price">$2,899<small>/person</small></div>
+          <a href="contact.html" class="btn-sm">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED PACKAGE -->
+<div style="padding: 0 4rem;">
+  <div class="featured-pkg fade-in">
+    <div class="featured-pkg-img">
+      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=700&q=80" alt="Zanzibar" />
+      <span class="featured-pkg-badge">★ Editor's Pick</span>
+    </div>
+    <div>
+      <div class="section-label">Exclusive Offer</div>
+      <h2 class="section-title">Zanzibar: Island of Spice & Sea</h2>
+      <p style="color:var(--text-light); line-height:1.8; margin-bottom:1.5rem;">Zanzibar is a feast for the senses — white sand beaches, coral reefs teeming with life, aromatic spice plantations, and a UNESCO-listed Stone Town that breathes history at every turn.</p>
+      <ul class="pkg-includes">
+        <li>10 nights, all-inclusive</li>
+        <li>Return flights from major hubs</li>
+        <li>Spice farm tour & dolphin watching</li>
+        <li>Sunset dhow cruise</li>
+        <li>Stone Town guided walking tour</li>
+        <li>Complimentary couple massage</li>
+      </ul>
+      <div class="price-box">
+        <div class="price">$1,599<small> /person</small></div>
+        <a href="contact.html" class="btn-primary">Book This Package</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Solstice<span>.</span></div>
+      <p class="footer-desc">Crafting extraordinary travel experiences since 2012.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">✦</a>
+        <a class="social-btn" href="#">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Popular</h4>
+      <ul>
+        <li><a href="#">Bali, Indonesia</a></li>
+        <li><a href="#">Santorini, Greece</a></li>
+        <li><a href="#">Maldives</a></li>
+        <li><a href="#">Kyoto, Japan</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Booking Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Solstice Travel. All rights reserved.</p>
+    <p>Designed with ♥ for explorers</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterPkg(type, btn) {
+  document.querySelectorAll('.pkg-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pkg-card').forEach(card => {
+    card.style.display = (type === 'all' || card.dataset.type === type) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>
